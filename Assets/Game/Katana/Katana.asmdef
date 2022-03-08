@@ -1,0 +1,16 @@
+{
+    "name": "Katana",
+    "rootNamespace": "",
+    "references": [
+        "GUID:34805c081736a4d4387a64d724072e51"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
