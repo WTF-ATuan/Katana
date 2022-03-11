@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using PDollarGestureRecognizer;
 using UnityEngine;
 
@@ -27,10 +28,23 @@ namespace Project.Gesture{
 		}
 
 		public string Recognize(){
+			var isGraterMinimumDistance = IsGraterMinimumDistance(_pointList.ToArray());
+			if(!isGraterMinimumDistance){
+				_pointList.Clear();
+				return "null";
+			}
+
 			var candidate = new PDollarGestureRecognizer.Gesture(_pointList.ToArray());
 			var gestureResult = PointCloudRecognizer.Classify(candidate, _gesturesList.ToArray());
 			_pointList.Clear();
 			return gestureResult.GestureClass;
+		}
+
+		private bool IsGraterMinimumDistance(Point[] points){
+			var firstPoint = new Vector2(points.First().X, points.First().Y);
+			var lastPoint = new Vector2(points.Last().X, points.Last().Y);
+			var distance = Vector2.Distance(firstPoint, lastPoint);
+			return distance > 0.3f;
 		}
 	}
 }
