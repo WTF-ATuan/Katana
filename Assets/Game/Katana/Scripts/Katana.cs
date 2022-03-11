@@ -26,17 +26,6 @@ namespace Katana.Scripts{
 				_animator.Play($"Cleave_Right");
 			}
 		}
-
-
-		public void CleaveEnter(Collision collision){
-			var enemy = collision.gameObject.GetComponent<Enemy.Scripts.Enemy>();
-			var contactPoints = collision.contacts;
-			var damagePoints = contactPoints.Select(x => x.point).ToList();
-			if(enemy){
-				enemy.TakeDamage(damagePoints);
-			}
-		}
-
-		public void CleaveExit(Collision collision){ }
+		
 	}
 }

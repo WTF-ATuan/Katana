@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -10,11 +12,16 @@ namespace Katana.Scripts{
 		}
 
 		private void OnCollisionEnter(Collision other){
-			_katana.CleaveEnter(other);
+			var enemy = other.gameObject.GetComponent<Enemy.Scripts.Enemy>();
+			if(enemy){
+				var contactPoints = other.contacts;
+				DamageEnemy(enemy, contactPoints);
+			}
 		}
 
-		private void OnCollisionExit(Collision other){
-			_katana.CleaveExit(other);
+		private void DamageEnemy(Enemy.Scripts.Enemy enemy, ContactPoint[] contactPoints){
+			var damagePoints = contactPoints.Select(x => x.point).ToList();
+			enemy.TakeDamage(damagePoints);
 		}
 	}
 }
