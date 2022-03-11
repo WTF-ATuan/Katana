@@ -24,23 +24,13 @@ namespace Actor.Scripts{
 				var lastPoint = points.Last();
 				var lineDirection = _gestureCalculator.CalculateLineDirection(firstPoint, lastPoint);
 				if(lineDirection.Equals(Vector3.left)){
-					TurnLeft();
+					_actor.Cleave(katana, lineDirection);
 				}
 
 				if(lineDirection.Equals(Vector3.right)){
-					TurnRight();
+					_actor.Cleave(katana, lineDirection);
 				}
 			}
 		}
-
-		private void TurnLeft(){
-			katana.Cleave(KatanaPostureState.LeftSide);
-		}
-
-		private void TurnRight(){
-			katana.Cleave(KatanaPostureState.RightSide);
-		}
-
-		public void Defense(){ }
 	}
 }

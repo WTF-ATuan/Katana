@@ -1,10 +1,8 @@
 ﻿using System;
-using Katana.Scripts;
 using UnityEngine;
 
 namespace Actor.Scripts{
 	public class Actor : MonoBehaviour{
-		private KatanaPostureState _currentPostureState;
 
 		public void ModifyFaceDirectionAngle(float increasedAngle){
 			var checkValue = increasedAngle / 90;
@@ -15,18 +13,13 @@ namespace Actor.Scripts{
 			var nextDirection = new Vector3(currentDirection.x, currentDirection.y + increasedAngle, currentDirection.z);
 			actorTransform.eulerAngles = nextDirection;
 		}
-
-		public void ModifyPostureState(KatanaPostureState state){
-			_currentPostureState = state;
-		}
-
 		public float GetCurrentFaceDirectionAngle(){
 			var eulerAngles = transform.eulerAngles;
 			return eulerAngles.y;
 		}
-
-		public KatanaPostureState GetCurrentPostureState(){
-			return _currentPostureState;
+		
+		public void Cleave(Katana.Scripts.Katana katana, Vector3 cleaveDirection){
+			katana.PlayAnimation(cleaveDirection);
 		}
 	}
 }

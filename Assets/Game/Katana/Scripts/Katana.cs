@@ -17,18 +17,13 @@ namespace Katana.Scripts{
 			katanaTransform.up = faceDirection;
 		}
 
-		public void Cleave(KatanaPostureState postureState){
-			switch(postureState){
-				case KatanaPostureState.LeftSide:
-					_animator.Play($"Cleave_Left");
-					break;
-				case KatanaPostureState.RightSide:
-					_animator.Play($"Cleave_Right");
-					break;
-				case KatanaPostureState.Defense:
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(postureState), postureState, null);
+		public void PlayAnimation(Vector3 direction){
+			if(direction == Vector3.left){
+				_animator.Play($"Cleave_Left");
+			}
+
+			if(direction == Vector3.right){
+				_animator.Play($"Cleave_Right");
 			}
 		}
 
