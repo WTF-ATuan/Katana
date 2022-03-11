@@ -4,7 +4,18 @@ using UnityEngine;
 
 namespace Katana.Scripts{
 	public class Katana : MonoBehaviour{
+		public Vector3 BladeDirection => transform.eulerAngles;
+		public Vector3 MoveDirection => (_position - _previousPosition).normalized;
+
 		private Animator _animator;
+
+		private Vector3 _previousPosition;
+		private Vector3 _position;
+
+		private void Update(){
+			_previousPosition = _position;
+			_position = transform.position;
+		}
 
 		private void Start(){
 			_animator = GetComponentInChildren<Animator>();

@@ -6,6 +6,7 @@ using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Profiling;
+using Debug = UnityEngine.Debug;
 
 namespace BzKovSoft.CharacterSlicer.Samples
 {
@@ -60,7 +61,6 @@ namespace BzKovSoft.CharacterSlicer.Samples
 
 			_lastSliceTime = currentSliceTime;
 			_sliceId = sliceId;
-
 			Slice(plane, callBack);
 		}
 
