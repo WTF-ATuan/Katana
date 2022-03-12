@@ -1,31 +1,33 @@
 using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Katana.Scripts{
 	public class Katana : MonoBehaviour{
-		public Vector3 BladeDirection => transform.eulerAngles;
-		public Vector3 MoveDirection => (_position - _previousPosition).normalized;
+		private Transform _katanaModel;
+
+		[ShowInInspector]
+		[ReadOnly]
+		public Vector3 BladeDirection =>
+				_katanaModel.rotation * Vector3.up;
+
+		public Vector3 OriginPosition{
+			get{
+				var localShifted = _katanaModel.InverseTransformPoint(_katanaModel.position) + Vector3.down;
+				return _katanaModel.TransformPoint(localShifted);
+			}
+		}
+
+		[ShowInInspector]
+		[ReadOnly]
+		public Vector3 MoveDirection => _katanaModel.transform.position.normalized;
 
 		private Animator _animator;
 
-		private Vector3 _previousPosition;
-		private Vector3 _position;
-
-		private void Update(){
-			_previousPosition = _position;
-			_position = transform.position;
-		}
-
 		private void Start(){
 			_animator = GetComponentInChildren<Animator>();
-		}
-
-		public void SetFaceToTarget(Vector2 targetPosition){
-			var katanaTransform = transform;
-			var faceDirection = (Vector2)katanaTransform.position.normalized
-								- targetPosition * -1;
-			katanaTransform.up = faceDirection;
+			_katanaModel = GetComponentsInChildren<Transform>()[1];
 		}
 
 		public void PlayAnimation(Vector3 direction){
@@ -37,6 +39,5 @@ namespace Katana.Scripts{
 				_animator.Play($"Cleave_Right");
 			}
 		}
-		
 	}
 }

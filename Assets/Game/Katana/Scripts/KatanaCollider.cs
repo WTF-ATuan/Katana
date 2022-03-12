@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using BzKovSoft.ObjectSlicer.Samples;
+﻿using BzKovSoft.ObjectSlicer.Samples;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -11,32 +9,35 @@ namespace Katana.Scripts{
 			_katana = GetComponentInParent<Katana>();
 		}
 
-		private void OnCollisionEnter(Collision other){
-			var enemy = other.gameObject.GetComponent<Enemy.Scripts.Enemy>();
-			var sliceable = other.gameObject.GetComponentInParent<IBzSliceableNoRepeat>();
-			var contactPoints = other.contacts;
-			if(sliceable != null){
-				SliceEnemy(sliceable, contactPoints);
-			}
 
-			if(enemy){
-				DamageEnemy(enemy, contactPoints);
-			}
+		private void OnTriggerEnter(Collider other){
+			var enemy = other.GetComponent<Enemy.Scripts.Enemy>();
+			var sliceable = other.GetComponent<IBzSliceableNoRepeat>();
+			if(sliceable != null)
+				Slice(sliceable, other.transform.position);
 		}
 
-		private void DamageEnemy(Enemy.Scripts.Enemy enemy, IEnumerable<ContactPoint> contactPoints){
-			var damagePoints = contactPoints.Select(x => x.point).ToList();
-			enemy.TakeDamage(damagePoints);
+		private Vector3 normal;
+		private Vector3 collisionPoint;
+
+		private void Slice(IBzSliceableNoRepeat sliceableObject, Vector3 objectPosition){
+			normal = Vector3.Cross(_katana.MoveDirection, _katana.BladeDirection);
+			collisionPoint = GetCollisionPoint(objectPosition);
+			var plane = new Plane(normal, collisionPoint);
+			sliceableObject.Slice(plane, 0, result => Debug.Log(result.sliced));
 		}
 
-		private int sliceCount;
+		private Vector3 GetCollisionPoint(Vector3 targetPosition){
+			var distanceToObject = targetPosition - _katana.OriginPosition;
+			var projectDot = Vector3.Project(distanceToObject, _katana.BladeDirection);
+			var collisionPoint = _katana.OriginPosition + projectDot;
+			return collisionPoint;
+		}
 
-		private void SliceEnemy(IBzSliceableNoRepeat sliceableObject, IEnumerable<ContactPoint> contactPoints){
-			var point = contactPoints.First().point;
-			var normal = Vector3.Cross(_katana.MoveDirection, _katana.BladeDirection);
-			var plane = new Plane(normal, point);
-			sliceableObject.Slice(plane, 0, null);
-			sliceCount++;
+		private void OnDrawGizmos(){
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere(normal, 0.1f);
+			Gizmos.DrawSphere(collisionPoint, 0.1f);
 		}
 	}
 }
