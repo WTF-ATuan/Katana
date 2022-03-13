@@ -20,11 +20,10 @@ namespace Katana.Scripts{
 		private Vector3 collisionPoint;
 
 		private void Slice(IBzSliceableNoRepeat sliceableObject, Collider other){
-			var normal = Vector3.Cross(_katana.BladePosition, _katana.BladeDirection);
-			Debug.Log($"normal = {normal}");
+			var normal = Vector3.Cross(_katana.BladeMoveDirection, _katana.BladeDirection);
 			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
 			var plane = new Plane(normal, collisionPoint);
-			sliceableObject.Slice(plane, 0, result => Debug.Log(result.sliced));
+			sliceableObject.Slice(plane, 0, result => Debug.Log("sliced? = " + result.sliced));
 		}
 
 		private void OnDrawGizmos(){

@@ -396,7 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663959514574290869, guid: abfca60500018a440875d00495a54dcc, type: 3}
       propertyPath: field of view
-      value: 78.5
+      value: 114.25974
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663959514574290869, guid: abfca60500018a440875d00495a54dcc, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfca60500018a440875d00495a54dcc, type: 3}
@@ -610,6 +614,7 @@ GameObject:
   - component: {fileID: 808769689}
   - component: {fileID: 808769688}
   - component: {fileID: 808769687}
+  - component: {fileID: 808769693}
   m_Layer: 0
   m_Name: Sliceble Cube
   m_TagString: Untagged
@@ -729,6 +734,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808769693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808769686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3831578e3316d041b73e0e29a8c2dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956439421
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +1009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5815703219950642333, guid: 326174cf09b87a74482abbe20759da16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.213
+      value: 1.296
       objectReference: {fileID: 0}
     - target: {fileID: 5815703219950642333, guid: 326174cf09b87a74482abbe20759da16, type: 3}
       propertyPath: m_LocalPosition.z
