@@ -4,7 +4,7 @@ namespace Katana.Scripts{
 	public class Katana : MonoBehaviour{
 		[SerializeField] private Transform bladePoint;
 		public Vector3 BladePosition => bladePoint.position;
-		public Vector3 BladePlaneNormal => -bladePoint.right;
+		public Vector3 BladeNormal => -bladePoint.right;
 
 
 		private Animator _animator;

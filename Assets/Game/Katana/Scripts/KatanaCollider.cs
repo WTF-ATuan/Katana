@@ -14,22 +14,20 @@ namespace Katana.Scripts{
 		private void OnTriggerEnter(Collider other){
 			var enemy = other.GetComponent<Enemy.Scripts.Enemy>();
 			var sliceable = other.GetComponent<ISliceableNoRepeat>();
-			if(sliceable != null)
-				Slice(sliceable, other);
+			if(sliceable != null){
+				var collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
+				Slice(sliceable, collisionPoint);
+			}
 		}
 
-		private Vector3 collisionPoint;
-
-		private void Slice(ISliceableNoRepeat sliceableObject, Collider other){
-			var planeNormalDirection = _katana.BladePlaneNormal;
-			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
+		private void Slice(ISliceableNoRepeat sliceableObject, Vector3 collisionPoint){
+			var planeNormalDirection = _katana.BladeNormal;
 			var plane = new Plane(planeNormalDirection, collisionPoint);
 			sliceableObject.TrySlice(plane, OnSliced);
 		}
 
 		private void OnSliced(BzSliceTryResult result){
 			var sliced = result.sliced;
-			Debug.Log($"sliced = {sliced}");
 		}
 
 		private void OnDrawGizmos(){
