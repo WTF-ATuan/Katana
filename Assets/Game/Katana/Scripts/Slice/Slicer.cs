@@ -1,10 +1,19 @@
-﻿using UnityEngine;
+﻿using BzKovSoft.ObjectSlicer;
+using Game.Katana.Scripts.Slice.Interface;
+using UnityEngine;
 
 namespace Katana.Scripts{
 	public class Slicer{
-		public Vector3 PlaneNormal{ get; private set; }
-		public float PlaneDistance{ get; private set; }
+		public void Slice(Collider sliceableCollider, SegmentationData data){
+			var sliceable = sliceableCollider.GetComponent<ISliceableNoRepeat>();
+			if(sliceable == null) return;
+			var plane = data.Plane;
+			sliceable.TrySlice(plane, OnSliced);
+		}
 
-		public void Slice(Collider sliceCollider){ }
+		private void OnSliced(BzSliceTryResult result){
+			var sliced = result.sliced;
+			Debug.Log($"sliced = {sliced}");
+		}
 	}
 }

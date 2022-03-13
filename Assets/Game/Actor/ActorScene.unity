@@ -613,8 +613,7 @@ GameObject:
   - component: {fileID: 808769690}
   - component: {fileID: 808769689}
   - component: {fileID: 808769688}
-  - component: {fileID: 808769687}
-  - component: {fileID: 808769693}
+  - component: {fileID: 808769694}
   m_Layer: 0
   m_Name: Sliceble Cube
   m_TagString: Untagged
@@ -622,24 +621,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &808769687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808769686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5cacb76cba02543ac5277e19a4100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 2100000, guid: 98e3d348c55e6a244b34dd502d9ed4cc, type: 2}
-  asynchronously: 0
-  useLazyRunner: 0
-  _sliceId: 0
-  _lastSliceTime: -3.4028235e+38
-  delayBetweenSlices: 1
 --- !u!54 &808769688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -734,7 +715,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &808769693
+--- !u!114 &808769694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -743,9 +724,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 808769686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3831578e3316d041b73e0e29a8c2dc0, type: 3}
+  m_Script: {fileID: 11500000, guid: ac5ddae308fd4266bf4e8a39c288ff51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 2100000, guid: 8d530ffe6c4968843806085897955b9d, type: 2}
+  asynchronously: 0
+  useLazyRunner: 0
+  sliceDelay: 1
 --- !u!1 &956439421
 GameObject:
   m_ObjectHideFlags: 0
