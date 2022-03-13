@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5cacb76cba02543ac5277e19a4100d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 2100000, guid: 663834164c6a04740aaa1b778249ce7e, type: 2}
+  defaultSliceMaterial: {fileID: 2100000, guid: 98e3d348c55e6a244b34dd502d9ed4cc, type: 2}
   asynchronously: 0
   useLazyRunner: 0
   _sliceId: 0

@@ -21,9 +21,9 @@ namespace Katana.Scripts{
 		private Vector3 collisionPoint;
 
 		private void Slice(IBzSliceableNoRepeat sliceableObject, Collider other){
-			var normal = Vector3.Cross(_katana.BladeMoveDirection, _katana.BladeDirection);
+			var planeNormalDirection = _katana.BladePlaneNormal;
 			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
-			var plane = new Plane(normal, collisionPoint);
+			var plane = new Plane(planeNormalDirection, collisionPoint);
 			sliceableObject.Slice(plane, 0, OnSliced);
 		}
 
@@ -35,11 +35,6 @@ namespace Katana.Scripts{
 		private void OnDrawGizmos(){
 			if(!Application.isPlaying) return;
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(collisionPoint, 0.1f);
-			Gizmos.DrawWireSphere(collisionPoint + _katana.BladeMoveDirection, 0.1f);
-			Gizmos.DrawWireSphere(collisionPoint + _katana.BladeDirection, 0.1f);
-			Gizmos.DrawWireSphere(collisionPoint + Vector3.Cross(_katana.BladeMoveDirection, _katana.BladeDirection),
-				0.1f);
 		}
 	}
 }
