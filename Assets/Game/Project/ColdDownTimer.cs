@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Enemy.Scripts{
+namespace Game.Project{
 	public class ColdDownTimer{
 		private float During{ get; set; }
 		private float TrackTime{ get; set; }

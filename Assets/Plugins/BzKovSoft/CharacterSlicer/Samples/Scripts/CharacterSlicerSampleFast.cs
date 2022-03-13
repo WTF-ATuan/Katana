@@ -43,7 +43,7 @@ namespace BzKovSoft.CharacterSlicer.Samples
 		/// </summary>
 		public float delayBetweenSlices = 1f;
 
-		public void Slice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack)
+		public void TrySlice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack)
 		{
 			float currentSliceTime = Time.time;
 

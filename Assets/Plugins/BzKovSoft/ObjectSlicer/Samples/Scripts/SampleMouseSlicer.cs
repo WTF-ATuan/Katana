@@ -27,7 +27,7 @@ namespace BzKovSoft.ObjectSlicer.Samples
 					Plane plane = new Plane(direction, ray.origin);
 
 					if (sliceableA != null)
-						sliceableA.Slice(plane, sliceId, null);
+						sliceableA.TrySlice(plane, sliceId, null);
 				}
 			}
 		}

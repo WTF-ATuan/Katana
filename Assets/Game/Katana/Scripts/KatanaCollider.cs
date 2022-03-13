@@ -24,7 +24,7 @@ namespace Katana.Scripts{
 			var planeNormalDirection = _katana.BladePlaneNormal;
 			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
 			var plane = new Plane(planeNormalDirection, collisionPoint);
-			sliceableObject.Slice(plane, 0, OnSliced);
+			sliceableObject.TrySlice(plane, 0, OnSliced);
 		}
 
 		private void OnSliced(BzSliceTryResult result){

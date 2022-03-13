@@ -17,10 +17,10 @@ namespace BzKovSoft.ObjectSlicer.Editor
 		string _dataFilePath;
 		string _meshFilePath;
 
-		[MenuItem("Window/BzSoft/MeshSlicer/Repeat Slice")]
+		[MenuItem("Window/BzSoft/MeshSlicer/Repeat TrySlice")]
 		private static void ShowWindow()
 		{
-			EditorWindow.GetWindow(typeof(RepeatSliceDialog), false, "Repeat Slice");
+			EditorWindow.GetWindow(typeof(RepeatSliceDialog), false, "Repeat TrySlice");
 		}
 
 		void OnGUI()

@@ -31,7 +31,7 @@ namespace BzKovSoft.ObjectSlicer
 	}
 
 	/// <summary>
-	/// Slice edge details
+	/// TrySlice edge details
 	/// </summary>
 	public class BzSliceEdgeResult
 	{

@@ -16,6 +16,6 @@ namespace Plugins.BzKovSoft.ObjectSlicer
 		/// <param name="sliceId">To prevent multiple slice requests you should use sliceId,
 		/// you can pass 0 to ignore it</param>
 		/// <param name="callBack">Method that will be called when the slice will be done</param>
-		void Slice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack);
+		void TrySlice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack);
 	}
 }

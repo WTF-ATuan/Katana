@@ -34,7 +34,7 @@ namespace BzKovSoft.ObjectSlicer.Samples{
 			Plane plane = new Plane(normal, point);
 
 			if(_sliceableAsync != null){
-				_sliceableAsync.Slice(plane, knife.SliceID, null);
+				_sliceableAsync.TrySlice(plane, knife.SliceID, null);
 			}
 		}
 
