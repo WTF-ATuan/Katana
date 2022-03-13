@@ -1,12 +1,16 @@
-﻿using BzKovSoft.ObjectSlicer;
+﻿using System;
+using BzKovSoft.ObjectSlicer;
 using Game.Katana.Scripts.Slice.Interface;
+using Katana.Scripts;
 using UnityEngine;
 
-namespace Katana.Scripts{
+namespace Game.Katana.Scripts.Slice{
 	public class Slicer{
-		public void Slice(Collider sliceableCollider, SegmentationData data){
-			var sliceable = sliceableCollider.GetComponent<ISliceableNoRepeat>();
-			if(sliceable == null) return;
+		public void Slice(ISliceableNoRepeat sliceable, SegmentationData data){
+			if(sliceable == null){
+				throw new NullReferenceException("ISliceableNoRepeat is null");
+			}
+
 			var plane = data.Plane;
 			sliceable.TrySlice(plane, OnSliced);
 		}
