@@ -1,4 +1,5 @@
-﻿using Plugins.BzKovSoft.ObjectSlicer;
+﻿using BzKovSoft.ObjectSlicer;
+using Plugins.BzKovSoft.ObjectSlicer;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -23,12 +24,22 @@ namespace Katana.Scripts{
 			var normal = Vector3.Cross(_katana.BladeMoveDirection, _katana.BladeDirection);
 			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
 			var plane = new Plane(normal, collisionPoint);
-			sliceableObject.Slice(plane, 0, result => Debug.Log("sliced? = " + result.sliced));
+			sliceableObject.Slice(plane, 0, OnSliced);
+		}
+
+		private void OnSliced(BzSliceTryResult result){
+			var sliced = result.sliced;
+			Debug.Log($"sliced = {sliced}");
 		}
 
 		private void OnDrawGizmos(){
-			Gizmos.color = Color.green;
-			Gizmos.DrawSphere(collisionPoint, 0.1f);
+			if(!Application.isPlaying) return;
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(collisionPoint, 0.1f);
+			Gizmos.DrawWireSphere(collisionPoint + _katana.BladeMoveDirection, 0.1f);
+			Gizmos.DrawWireSphere(collisionPoint + _katana.BladeDirection, 0.1f);
+			Gizmos.DrawWireSphere(collisionPoint + Vector3.Cross(_katana.BladeMoveDirection, _katana.BladeDirection),
+				0.1f);
 		}
 	}
 }
