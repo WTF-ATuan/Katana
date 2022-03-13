@@ -21,7 +21,7 @@ namespace BzKovSoft.ObjectSlicer.Samples
 
 				for (int i = 0; i < hits.Length; i++)
 				{
-					var sliceableA = hits[i].transform.GetComponentInParent<IBzSliceableNoRepeat>();
+					var sliceableA = hits[i].transform.GetComponentInParent<ISliceableNoRepeat>();
 
 					Vector3 direction = Vector3.Cross(ray.direction, Camera.main.transform.right);
 					Plane plane = new Plane(direction, ray.origin);

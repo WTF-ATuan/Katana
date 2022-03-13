@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace BzKovSoft.ObjectSlicer.Samples{
 	/// <summary>
-	/// This script will invoke slice method of IBzSliceableNoRepeat interface if knife slices this GameObject.
+	/// This script will invoke slice method of ISliceableNoRepeat interface if knife slices this GameObject.
 	/// The script must be attached to a GameObject that have rigidbody on it and
 	/// IBzSliceable implementation in one of its parent.
 	/// </summary>
 	[DisallowMultipleComponent]
 	public class KnifeSliceableAsync : MonoBehaviour{
-		IBzSliceableNoRepeat _sliceableAsync;
+		ISliceableNoRepeat _sliceableAsync;
 
 		void Start(){
-			_sliceableAsync = GetComponentInParent<IBzSliceableNoRepeat>();
+			_sliceableAsync = GetComponentInParent<ISliceableNoRepeat>();
 		}
 
 		void OnTriggerEnter(Collider other){

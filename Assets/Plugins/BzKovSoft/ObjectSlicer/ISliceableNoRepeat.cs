@@ -7,7 +7,7 @@ namespace Plugins.BzKovSoft.ObjectSlicer
 	/// <summary>
 	/// Asynchronously sliceable object
 	/// </summary>
-	public interface IBzSliceableNoRepeat
+	public interface ISliceableNoRepeat
 	{
 		/// <summary>
 		/// Start slicing the object
@@ -16,6 +16,6 @@ namespace Plugins.BzKovSoft.ObjectSlicer
 		/// <param name="sliceId">To prevent multiple slice requests you should use sliceId,
 		/// you can pass 0 to ignore it</param>
 		/// <param name="callBack">Method that will be called when the slice will be done</param>
-		void Slice(Plane plane, int slicdId, Action<BzSliceTryResult> callBack);
+		void Slice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack);
 	}
 }

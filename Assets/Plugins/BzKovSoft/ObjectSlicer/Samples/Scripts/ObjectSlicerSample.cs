@@ -8,7 +8,7 @@ namespace BzKovSoft.ObjectSlicer.Samples
 	/// <summary>
 	/// Sample of BzSliceableObjectBase implementation 
 	/// </summary>
-	public class ObjectSlicerSample : BzSliceableObjectBase, IBzSliceableNoRepeat
+	public class ObjectSlicerSample : BzSliceableObjectBase, ISliceableNoRepeat
 	{
 		[HideInInspector]
 		[SerializeField]

@@ -14,7 +14,7 @@ namespace BzKovSoft.CharacterSlicer.Samples
 	/// <summary>
 	/// Example of implementation character sliceable object
 	/// </summary>
-	public class CharacterSlicerSampleFast : BzSliceableCharacterBase, IBzSliceableNoRepeat, IDeadable
+	public class CharacterSlicerSampleFast : BzSliceableCharacterBase, ISliceableNoRepeat, IDeadable
 	{
 #pragma warning disable 0649
 		[HideInInspector]
