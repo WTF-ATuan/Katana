@@ -1,4 +1,4 @@
-﻿using BzKovSoft.ObjectSlicer.Samples;
+﻿using Plugins.BzKovSoft.ObjectSlicer;
 using UnityEngine;
 
 namespace Katana.Scripts{

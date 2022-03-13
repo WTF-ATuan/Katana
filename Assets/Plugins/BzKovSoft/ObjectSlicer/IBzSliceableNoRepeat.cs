@@ -1,7 +1,8 @@
 ﻿using System;
+using BzKovSoft.ObjectSlicer;
 using UnityEngine;
 
-namespace BzKovSoft.ObjectSlicer.Samples
+namespace Plugins.BzKovSoft.ObjectSlicer
 {
 	/// <summary>
 	/// Asynchronously sliceable object

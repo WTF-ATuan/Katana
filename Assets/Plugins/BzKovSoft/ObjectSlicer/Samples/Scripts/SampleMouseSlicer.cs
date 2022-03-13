@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Plugins.BzKovSoft.ObjectSlicer;
+using UnityEngine;
 
 namespace BzKovSoft.ObjectSlicer.Samples
 {
