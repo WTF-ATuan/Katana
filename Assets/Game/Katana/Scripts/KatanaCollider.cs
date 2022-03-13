@@ -1,5 +1,5 @@
 ﻿using BzKovSoft.ObjectSlicer;
-using Plugins.BzKovSoft.ObjectSlicer;
+using Game.Katana.Scripts.Slice.Interface;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -24,7 +24,7 @@ namespace Katana.Scripts{
 			var planeNormalDirection = _katana.BladePlaneNormal;
 			collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
 			var plane = new Plane(planeNormalDirection, collisionPoint);
-			sliceableObject.TrySlice(plane, 0, OnSliced);
+			sliceableObject.TrySlice(plane, OnSliced);
 		}
 
 		private void OnSliced(BzSliceTryResult result){

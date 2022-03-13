@@ -1,7 +1,7 @@
 ﻿using System;
 using BzKovSoft.ObjectSlicer;
+using Game.Katana.Scripts.Slice.Interface;
 using Game.Project;
-using Plugins.BzKovSoft.ObjectSlicer;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -24,11 +24,10 @@ namespace Katana.Scripts{
 			};
 		}
 
-		public void TrySlice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack){
-			if(sliceId == 0 && timer.CanInvoke()){
-				Slice(plane, callBack);
-				timer.Reset();
-			}
+		public void TrySlice(Plane plane, Action<BzSliceTryResult> callBack){
+			if(!timer.CanInvoke()) return;
+			Slice(plane, callBack);
+			timer.Reset();
 		}
 	}
 }
