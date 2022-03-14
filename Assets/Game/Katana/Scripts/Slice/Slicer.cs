@@ -6,13 +6,21 @@ using UnityEngine;
 
 namespace Game.Katana.Scripts.Slice{
 	public class Slicer{
+		public Plane CurrentSlicePlane{ get; private set; }
+
 		public void Slice(ISliceableNoRepeat sliceable, SegmentationData data){
 			if(sliceable == null){
 				throw new NullReferenceException("ISliceableNoRepeat is null");
 			}
 
-			var plane = data.Plane;
-			sliceable.TrySlice(plane, OnSliced);
+			CurrentSlicePlane = data.Plane;
+			sliceable.TrySlice(CurrentSlicePlane, OnSliced);
+		}
+
+		public Vector3 DirectionOfPlane(Vector3 position){
+			if(CurrentSlicePlane.Equals(default)) return Vector3.zero;
+			var isPositiveSide = CurrentSlicePlane.GetSide(position);
+			return isPositiveSide ? Vector3.up : Vector3.down;
 		}
 
 		private void OnSliced(BzSliceTryResult result){
