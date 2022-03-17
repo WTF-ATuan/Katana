@@ -29,9 +29,5 @@ namespace Katana.Scripts{
 			var sliced = result.sliced;
 		}
 
-		private void OnDrawGizmos(){
-			if(!Application.isPlaying) return;
-			Gizmos.color = Color.red;
-		}
 	}
 }
