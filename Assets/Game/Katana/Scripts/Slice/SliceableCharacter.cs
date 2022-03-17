@@ -19,8 +19,16 @@ namespace Game.Katana.Scripts.Slice{
 
 		public void TrySlice(Plane plane, Action<BzSliceTryResult> callBack){
 			if(!timer.CanInvoke()) return;
+			callBack += result => OnObjectSliced(plane, result);
 			Slice(plane, callBack);
 			timer.Reset();
+		}
+
+		private void OnObjectSliced(Plane plane, BzSliceTryResult result){
+			var sliced = result.sliced;
+			if(!sliced) return;
+			var posRig = result.outObjectPos.GetComponent<Rigidbody>();
+			posRig.AddForce(plane.normal * 5f, ForceMode.Impulse);
 		}
 	}
 }

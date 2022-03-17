@@ -10,6 +10,6 @@ namespace BzKovSoft.ObjectSlicer.EventHandlers
 		/// <summary>
 		/// called when the object successfully sliced
 		/// </summary>
-		void ObjectSliced(GameObject original, GameObject resutlNeg, GameObject resultPos);
+		void ObjectSliced(GameObject original, GameObject resultNeg, GameObject resultPos);
 	}
 }

@@ -12,7 +12,6 @@ namespace Katana.Scripts{
 
 
 		private void OnTriggerEnter(Collider other){
-			var enemy = other.GetComponent<Enemy.Scripts.Enemy>();
 			var sliceable = other.GetComponent<ISliceableNoRepeat>();
 			if(sliceable != null){
 				var collisionPoint = other.ClosestPointOnBounds(_katana.BladePosition);
