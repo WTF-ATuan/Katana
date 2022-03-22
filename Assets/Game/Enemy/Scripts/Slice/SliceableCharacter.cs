@@ -1,12 +1,11 @@
-﻿using System;
-using BzKovSoft.CharacterSlicer;
+﻿using BzKovSoft.CharacterSlicer;
 using BzKovSoft.ObjectSlicer;
-using Game.Katana.Scripts.Slice.Interface;
+using Game.Enemy.Scripts.Slice.Interface;
 using Game.Project;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Game.Katana.Scripts.Slice{
+namespace Game.Enemy.Scripts.Slice{
 	public class SliceableCharacter : BzSliceableCharacterBase, ISliceableNoRepeat{
 		[BoxGroup] [SerializeField] [Range(0.5f, 1.5f)]
 		private float sliceDelay = 1.0f;
@@ -22,12 +21,12 @@ namespace Game.Katana.Scripts.Slice{
 			timer = new ColdDownTimer(sliceDelay);
 		}
 
-		public void TrySlice(Plane plane, Action<BzSliceTryResult> callBack){
-			if(!timer.CanInvoke() || sliceCount >= maxSliceCount) return;
-			callBack += result => OnObjectSliced(plane, result);
-			Slice(plane, callBack);
+		public bool TrySlice(Plane plane){
+			if(!timer.CanInvoke() || sliceCount >= maxSliceCount) return false;
+			Slice(plane, result => OnObjectSliced(plane, result));
 			sliceCount++;
 			timer.Reset();
+			return true;
 		}
 
 		private void OnObjectSliced(Plane plane, BzSliceTryResult result){

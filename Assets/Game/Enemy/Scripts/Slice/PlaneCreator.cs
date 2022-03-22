@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Katana.Scripts.Slice{
+namespace Game.Enemy.Scripts.Slice{
 	public class PlaneCreator{
 		public Plane CurrentSlicePlane{ get; private set; }
 

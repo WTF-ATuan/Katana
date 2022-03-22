@@ -1,5 +1,4 @@
-﻿using BzKovSoft.ObjectSlicer;
-using Game.Katana.Scripts.Slice.Interface;
+﻿using Game.Enemy.Scripts.Slice.Interface;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -22,12 +21,7 @@ namespace Katana.Scripts{
 		private void Slice(ISliceableNoRepeat sliceableObject, Vector3 collisionPoint){
 			var planeNormalDirection = _katana.BladeNormal;
 			var plane = new Plane(planeNormalDirection, collisionPoint);
-			sliceableObject.TrySlice(plane, OnSliced);
+			sliceableObject.TrySlice(plane);
 		}
-
-		private void OnSliced(BzSliceTryResult result){
-			var sliced = result.sliced;
-		}
-
 	}
 }
