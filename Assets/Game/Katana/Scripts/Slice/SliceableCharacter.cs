@@ -14,7 +14,7 @@ namespace Game.Katana.Scripts.Slice{
 		[BoxGroup] [SerializeField] [Range(1, 5)]
 		private int maxSliceCount = 1;
 
-		[SerializeField] private int sliceCount;
+		private int sliceCount;
 
 		private ColdDownTimer timer;
 
