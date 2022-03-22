@@ -11,6 +11,11 @@ namespace Game.Katana.Scripts.Slice{
 		[BoxGroup] [SerializeField] [Range(0.5f, 1.5f)]
 		private float sliceDelay = 1.0f;
 
+		[BoxGroup] [SerializeField] [Range(1, 5)]
+		private int maxSliceCount = 1;
+
+		private int sliceCount;
+
 		private ColdDownTimer timer;
 
 		private void Start(){
@@ -18,9 +23,10 @@ namespace Game.Katana.Scripts.Slice{
 		}
 
 		public void TrySlice(Plane plane, Action<BzSliceTryResult> callBack){
-			if(!timer.CanInvoke()) return;
+			if(!timer.CanInvoke() && sliceCount > maxSliceCount) return;
 			callBack += result => OnObjectSliced(plane, result);
 			Slice(plane, callBack);
+			sliceCount++;
 			timer.Reset();
 		}
 
