@@ -458,7 +458,6 @@ GameObject:
   - component: {fileID: 2860370922288651004}
   - component: {fileID: 8165651636642037894}
   - component: {fileID: 8297216538278538337}
-  - component: {fileID: 1964369414837666186}
   - component: {fileID: 3718534495598219802}
   m_Layer: 0
   m_Name: Pre_Enemy
@@ -514,19 +513,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e01c0bb58f88469d920d865c8482a851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.05
---- !u!114 &1964369414837666186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240837591740661830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1eece9d620644dd820750a10e959aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &3718534495598219802
