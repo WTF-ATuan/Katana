@@ -1,6 +1,4 @@
-﻿using System;
-using PlasticPipe.PlasticProtocol.Client;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemy.Scripts{
 	public class Enemy : MonoBehaviour{

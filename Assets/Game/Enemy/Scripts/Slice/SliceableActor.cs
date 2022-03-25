@@ -1,7 +1,9 @@
 ﻿using BzKovSoft.CharacterSlicer;
 using BzKovSoft.ObjectSlicer;
+using Game.Enemy.Scripts.Slice.Event;
 using Game.Enemy.Scripts.Slice.Interface;
 using Game.Project;
+using Project;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -23,9 +25,9 @@ namespace Game.Enemy.Scripts.Slice{
 
 		public bool TrySlice(Plane plane){
 			if(!timer.CanInvoke() || sliceCount >= maxSliceCount) return false;
-			Slice(plane, result => OnActorSliced(plane, result));
 			sliceCount++;
 			timer.Reset();
+			Slice(plane, result => OnActorSliced(plane, result));
 			return true;
 		}
 
@@ -34,10 +36,7 @@ namespace Game.Enemy.Scripts.Slice{
 			if(!sliced) return;
 			var posRig = result.outObjectPos.GetComponent<Rigidbody>();
 			posRig.AddForce((plane.normal + -posRig.transform.forward) * 2, ForceMode.Impulse);
+			EventBus.Post(new ActorSliced(plane, gameObject, result.outObjectNeg, result.outObjectPos));
 		}
-	}
-
-	public interface IActorSliced{
-		void OnActorSliced(Plane plane , BzSliceTryResult result);
 	}
 }
