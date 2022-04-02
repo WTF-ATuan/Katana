@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Map.Scripts{
 	public class SquarePoint : MonoBehaviour{
-		[ProgressBar(1, 5)] public int width;
-		[ProgressBar(1, 5)] public int length;
+		[ProgressBar(1, 10, 0, 0, 0)] public int width;
+		[ProgressBar(1, 10, 1, 1, 1)] public int length;
 
 		public bool IsInPoint(Vector3 position){
 			var pointPosition = transform.position;
@@ -15,7 +15,7 @@ namespace Map.Scripts{
 		}
 
 		private void OnDrawGizmos(){
-			Gizmos.color = Color.green;
+			Gizmos.color = Color.blue;
 			Gizmos.DrawWireCube(transform.position, new Vector3(length, 0.1f, width));
 		}
 	}
