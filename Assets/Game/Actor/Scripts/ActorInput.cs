@@ -23,13 +23,7 @@ namespace Actor.Scripts{
 				var firstPoint = points.First();
 				var lastPoint = points.Last();
 				var lineDirection = _gestureCalculator.CalculateLineDirection(firstPoint, lastPoint);
-				if(lineDirection.Equals(Vector3.left)){
-					_actor.Cleave(katana, lineDirection);
-				}
-
-				if(lineDirection.Equals(Vector3.right)){
-					_actor.Cleave(katana, lineDirection);
-				}
+				_actor.Cleave(katana, lineDirection);
 			}
 		}
 	}

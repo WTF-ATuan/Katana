@@ -73,7 +73,6 @@ namespace Project.Gesture{
 			var listCount = _pointList.Count;
 			_lineRenderer.SetVertexCount(listCount);
 			var worldPoint = _userCamera.ScreenToWorldPoint(new Vector3(pointX, pointY, 10));
-			worldPoint.z = 3;
 			_lineRenderer.SetPosition(listCount - 1, worldPoint);
 		}
 
