@@ -7,6 +7,10 @@ namespace Enemy.Scripts{
 		public void Initialize(Transform targetPoint){
 			TargetTransform = targetPoint;
 		}
-		
+
+		public void AutoMove(float moveTime){
+			
+		}
+
 	}
 }
