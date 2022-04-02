@@ -1,19 +1,38 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Project;
 using Project.Gesture.Event;
 using UnityEngine;
 
 namespace Actor.Scripts{
-	public class ActorInput : MonoBehaviour{
-		private Actor _actor;
+	public class ActorController : MonoBehaviour{
 		[SerializeField] private Katana.Scripts.Katana katana;
+
+		private Actor _actor;
+		private IMove moveBehavior;
+
+		//TODO Gesture should be Project folder with other gesture scripts
 		private readonly GestureCalculator _gestureCalculator = new();
 
 		private void Start(){
+			InitActor();
+			EventHandle();
+		}
+
+		private void InitActor(){
 			_actor = GetComponent<Actor>();
+			moveBehavior = GetComponent<IMove>();
+			_actor.MoveBehavior = moveBehavior;
+		}
+
+		private void EventHandle(){
 			EventBus.Subscribe<GestureDetected>(OnGestureDetected);
 		}
-		
+
+		private void Update(){
+			_actor.Move();
+		}
+
 		//TODO Gesture should be Project folder with other gesture scripts
 		private void OnGestureDetected(GestureDetected obj){
 			var gestureName = obj.GestureName;

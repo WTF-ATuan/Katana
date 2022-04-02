@@ -7,14 +7,6 @@ namespace Actor.Scripts{
 		public IMove MoveBehavior;
 		public Vector3 Position => transform.position;
 
-		private void Start(){
-			MoveBehavior = GetComponent<IMove>();
-		}
-
-		private void Update(){
-			Move();
-		}
-
 		public void Move(){
 			if(MoveBehavior is null){
 				throw new Exception("MoveBehavior Interface is null");

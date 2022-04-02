@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055ec6ff315547beaf48d1ee8dc08c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorMoveSpeed: 0.5
+  actorMoveSpeed: 0.20130222
 --- !u!114 &1325460798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9172387219796884555, guid: 326174cf09b87a74482abbe20759da16, type: 3}
