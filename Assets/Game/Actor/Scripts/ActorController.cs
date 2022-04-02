@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Project;
 using Project.Gesture.Event;
 using UnityEngine;
