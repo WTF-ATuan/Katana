@@ -2,6 +2,8 @@
 using UnityEngine;
 
 namespace Katana.Scripts{
+	[RequireComponent(typeof(Rigidbody))]
+	[RequireComponent(typeof(Collider))]
 	public class KatanaCollider : MonoBehaviour{
 		private Katana _katana;
 

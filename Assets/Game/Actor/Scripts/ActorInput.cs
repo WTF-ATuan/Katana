@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Katana.Scripts;
 using Project;
 using Project.Gesture.Event;
 using UnityEngine;
@@ -14,11 +13,11 @@ namespace Actor.Scripts{
 			_actor = GetComponent<Actor>();
 			EventBus.Subscribe<GestureDetected>(OnGestureDetected);
 		}
-
+		
+		//TODO Gesture should be Project folder with other gesture scripts
 		private void OnGestureDetected(GestureDetected obj){
 			var gestureName = obj.GestureName;
 			var points = obj.Points;
-			var center = obj.Center;
 			if(gestureName.Equals("line")){
 				var firstPoint = points.First();
 				var lastPoint = points.Last();
