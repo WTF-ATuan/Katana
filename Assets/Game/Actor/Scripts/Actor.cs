@@ -1,10 +1,19 @@
 ﻿using System;
+using PlasticPipe.PlasticProtocol.Client;
 using UnityEngine;
 
 namespace Actor.Scripts{
 	public class Actor : MonoBehaviour{
 		public IMove MoveBehavior;
 		public Vector3 Position => transform.position;
+
+		private void Start(){
+			MoveBehavior = GetComponent<IMove>();
+		}
+
+		private void Update(){
+			Move();
+		}
 
 		public void Move(){
 			if(MoveBehavior is null){
