@@ -7,6 +7,8 @@ namespace Game.Map.MapTests{
 	public class PointProviderTests{
 		private PointProvider provider;
 
+		private SquarePoint center, left, right;
+
 		[SetUp]
 		public void Setup(){
 			provider = new PointProvider();
@@ -14,13 +16,13 @@ namespace Game.Map.MapTests{
 		}
 
 		private void SetUpPoint(){
-			var center = new GameObject().AddComponent<SquarePoint>();
-			var left = new GameObject{
+			center = new GameObject().AddComponent<SquarePoint>();
+			left = new GameObject{
 				transform ={
 					position = Vector3.left
 				}
 			}.AddComponent<SquarePoint>();
-			var right = new GameObject{
+			right = new GameObject{
 				transform ={
 					position = Vector3.right
 				}
@@ -31,6 +33,10 @@ namespace Game.Map.MapTests{
 		}
 
 		[Test]
-		public void Get_Enemy_Spawn_Point(){ }
+		public void Get_Enemy_Spawn_Point(){
+			var spawnPosition = provider.GetSpawnPosition(center.Position);
+			var expectSpawnPosition = left.Position;
+			Assert.AreEqual(expectSpawnPosition, spawnPosition);
+		}
 	}
 }
