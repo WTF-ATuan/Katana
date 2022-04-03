@@ -22,19 +22,32 @@ namespace Map.Scripts{
 		public Vector3[] GetSidePosition(Vector3 centerPosition){
 			var sidePositions = new Vector3[2];
 			var centerPoint = pointList.Find(x => x.IsInPoint(centerPosition));
-			var forwardDirection = CalculateDirection(centerPoint.Position, centerPoint.ForwardDirection);
-			//find Side Point Pass
+			var sidePoint = GetSidePoint(centerPoint);
+			var rightPoints = GetSameSidePoints(centerPoint, sidePoint, true);
+			var leftPoints = GetSameSidePoints(centerPoint, sidePoint, false);
+			sidePositions[0] = leftPoints.First().Position;
+			sidePositions[1] = rightPoints.First().Position;
+
+			return sidePositions;
+		}
+
+		private List<SquarePoint> GetSidePoint(SquarePoint centerPoint){
+			var forwardDirection = centerPoint.Position.DirectionalPosition(centerPoint.ForwardDirection);
 			var sidePoint = (from point in pointList
-				let pointDirection = CalculateDirection(point.Position, point.ForwardDirection)
+				let pointDirection = point.Position.DirectionalPosition(point.ForwardDirection)
 				where forwardDirection.Equals(pointDirection)
 				select point).ToList();
 			sidePoint.Remove(centerPoint);
-			//find Side Point Pass
-			var rightDirection = CalculateDirection(centerPoint.Position, centerPoint.RightDirection);
+			return sidePoint;
+		}
+
+		private List<SquarePoint> GetSameSidePoints(SquarePoint centerPoint, List<SquarePoint> sameSidePoints,
+			bool isRight){
+			var rightDirection = centerPoint.Position.DirectionalPosition(centerPoint.RightDirection);
 			var rightPoints = new List<SquarePoint>();
 			var leftPoints = new List<SquarePoint>();
-			foreach(var point in sidePoint){
-				var pointDirection = CalculateDirection(point.Position, point.RightDirection);
+			foreach(var point in sameSidePoints){
+				var pointDirection = point.Position.DirectionalPosition(point.RightDirection);
 				if(pointDirection.IsGreaterOrEqual(rightDirection)){
 					rightPoints.Add(point);
 				}
@@ -43,19 +56,7 @@ namespace Map.Scripts{
 				}
 			}
 
-			sidePositions[0] = leftPoints.First().Position;
-			sidePositions[1] = rightPoints.First().Position;
-
-			return sidePositions;
-		}
-
-		private Vector3 CalculateDirection(Vector3 position, Vector3 direction){
-			var positionX = position.x;
-			var positionZ = position.z;
-			var directionX = direction.x;
-			var directionZ = direction.z;
-			var finalPosition = new Vector3(positionX * directionX, 0, positionZ * directionZ);
-			return finalPosition;
+			return isRight ? rightPoints : leftPoints;
 		}
 	}
 }
