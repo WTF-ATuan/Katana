@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.av.smart-inspector": "https://github.com/neon-age/Smart-Inspector.git#main",
-    "com.ogxd.project-curator": "https://github.com/ogxd/project-curator.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.analytics": "3.6.11",
@@ -13,7 +12,7 @@
     "com.unity.ide.vscode": "1.2.4",
     "com.unity.inputsystem": "1.2.0",
     "com.unity.postprocessing": "3.2.0",
-    "com.unity.test-framework": "1.1.30",
+    "com.unity.test-framework": "1.1.31",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.3",
     "com.unity.ugui": "1.0.0",

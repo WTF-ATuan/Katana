@@ -29,7 +29,9 @@ namespace Actor.Scripts{
 		}
 
 		private void Update(){
-			_actor.Move();
+			if(moveBehavior != null){
+				_actor.Move();
+			}
 		}
 
 		//TODO Gesture should be Project folder with other gesture scripts
