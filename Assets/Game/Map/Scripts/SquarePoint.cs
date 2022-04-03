@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace Map.Scripts{
 	public class SquarePoint : MonoBehaviour{
-		[ProgressBar(1, 10, 0, 0, 0)] public int width;
-		[ProgressBar(1, 10, 1, 1, 1)] public int length;
+		[ProgressBar(1, 10, 0, 0, 0)] public int width = 5;
+		[ProgressBar(1, 10, 1, 1, 1)] public int length = 5;
+
+		public Vector3 Position => transform.position;
 
 		public bool IsInPoint(Vector3 position){
 			var pointPosition = transform.position;
