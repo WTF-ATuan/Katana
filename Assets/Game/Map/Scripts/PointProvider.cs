@@ -19,11 +19,6 @@ namespace Map.Scripts{
 			pointList.Remove(point);
 		}
 
-		public Vector3 GetSpawnPosition(Vector3 centerPosition){
-			var centerPoint = pointList.Find(x => x.IsInPoint(centerPosition));
-			return default;
-		}
-
 		public Vector3[] GetSidePosition(Vector3 centerPosition){
 			var sidePositions = new Vector3[2];
 			var centerPoint = pointList.Find(x => x.IsInPoint(centerPosition));

@@ -33,13 +33,6 @@ namespace Game.Map.MapTests{
 		}
 
 		[Test]
-		public void Get_Enemy_Spawn_Point(){
-			var spawnPosition = provider.GetSpawnPosition(center.Position);
-			var expectSpawnPosition = left.Position;
-			Assert.AreEqual(expectSpawnPosition, spawnPosition);
-		}
-
-		[Test]
 		public void Get_Side_Position(){
 			var sidePosition = provider.GetSidePosition(center.Position);
 			var leftPoint = sidePosition[0];
