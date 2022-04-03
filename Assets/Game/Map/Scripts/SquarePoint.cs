@@ -7,6 +7,8 @@ namespace Map.Scripts{
 		[ProgressBar(1, 10, 1, 1, 1)] public int length = 5;
 
 		public Vector3 Position => transform.position;
+		public Vector3 RightDirection => transform.right;
+		public Vector3 ForwardDirection => transform.forward;
 
 		public bool IsInPoint(Vector3 position){
 			var pointPosition = transform.position;

@@ -38,5 +38,14 @@ namespace Game.Map.MapTests{
 			var expectSpawnPosition = left.Position;
 			Assert.AreEqual(expectSpawnPosition, spawnPosition);
 		}
+
+		[Test]
+		public void Get_Side_Position(){
+			var sidePosition = provider.GetSidePosition(center.Position);
+			var leftPoint = sidePosition[0];
+			var rightPoint = sidePosition[1];
+			Assert.AreEqual(left.Position, leftPoint);
+			Assert.AreEqual(right.Position, rightPoint);
+		}
 	}
 }
