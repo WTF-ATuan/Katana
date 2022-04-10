@@ -9,6 +9,12 @@ namespace Map.Scripts{
 	public class PointProvider{
 		private readonly List<SquarePoint> pointList = new();
 
+		public PointProvider(List<SquarePoint> points){
+			pointList = points;
+		}
+
+		public PointProvider(){ }
+
 		public void Add(SquarePoint point){
 			pointList.Add(point);
 		}
@@ -25,6 +31,7 @@ namespace Map.Scripts{
 			if(centerPoint == null){
 				centerPoint = pointList.Find(x => x.IsInPoint(centerPosition));
 			}
+
 			var sidePoint = GetSidePoints(centerPoint);
 			var rightPoints = GetSameSidePoints(centerPoint, sidePoint, true);
 			var leftPoints = GetSameSidePoints(centerPoint, sidePoint, false);
@@ -33,6 +40,7 @@ namespace Map.Scripts{
 
 			return sidePositions;
 		}
+
 		private List<SquarePoint> GetSidePoints(SquarePoint centerPoint){
 			var forwardDirection = centerPoint.Position.DirectionalPosition(centerPoint.ForwardDirection);
 			var sidePoint = (from point in pointList
