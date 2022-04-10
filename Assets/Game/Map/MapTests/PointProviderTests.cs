@@ -7,7 +7,7 @@ namespace Game.Map.MapTests{
 	public class PointProviderTests{
 		private PointProvider provider;
 
-		private SquarePoint center, left, right;
+		private SquarePoint center, left, right, forward, forwardRight, forwardLeft, backRight;
 
 		[SetUp]
 		public void Setup(){
@@ -27,9 +27,33 @@ namespace Game.Map.MapTests{
 					position = Vector3.right
 				}
 			}.AddComponent<SquarePoint>();
+			forwardRight = new GameObject{
+				transform ={
+					position = new Vector3(1, 0, 1)
+				}
+			}.AddComponent<SquarePoint>();
+			backRight = new GameObject{
+				transform ={
+					position = new Vector3(1, 0, -1)
+				}
+			}.AddComponent<SquarePoint>();
+			forward = new GameObject{
+				transform ={
+					position = Vector3.forward
+				}
+			}.AddComponent<SquarePoint>();
+			forwardLeft = new GameObject{
+				transform ={
+					position = new Vector3(-1, 0, 1)
+				}
+			}.AddComponent<SquarePoint>();
 			provider.Add(center);
 			provider.Add(left);
 			provider.Add(right);
+			provider.Add(forward);
+			provider.Add(forwardLeft);
+			provider.Add(forwardRight);
+			provider.Add(backRight);
 		}
 
 		[Test]
@@ -39,6 +63,13 @@ namespace Game.Map.MapTests{
 			var rightPoint = sidePosition[1];
 			Assert.AreEqual(left.Position, leftPoint);
 			Assert.AreEqual(right.Position, rightPoint);
+		}
+
+		[Test]
+		public void Get_UpSide_Position(){
+			var upSidePosition = provider.GetIndexSidePosition(center.Position, 1);
+			var upRightPoint = upSidePosition[1];
+			Assert.AreEqual(forwardRight.Position, upRightPoint);
 		}
 	}
 }
