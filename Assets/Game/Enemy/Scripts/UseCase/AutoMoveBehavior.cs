@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace Game.Enemy.Scripts.UseCase{
 	public class AutoMoveBehavior : MonoBehaviour{
-		[SerializeField] private Transform target;
+		public Transform target;
+		public float moveSpeed = 3;
 
 		private global::Enemy.Scripts.Enemy enemy;
-
-		private void Start(){
+		
+		public void Init(){
 			enemy = GetComponent<global::Enemy.Scripts.Enemy>();
 			enemy.Initialize(target);
 			AutoMove();
@@ -17,9 +18,9 @@ namespace Game.Enemy.Scripts.UseCase{
 			var middlePosition = enemy.MiddlePosition;
 			var targetPosition = enemy.TargetPosition;
 			enemy.SetFaceDirection(middlePosition);
-			var moveToMiddle = enemy.transform.DOMove(middlePosition, 3f);
+			var moveToMiddle = enemy.transform.DOMove(middlePosition, moveSpeed);
 			moveToMiddle.OnComplete(() => {
-				enemy.transform.DOMove(targetPosition, 3f);
+				enemy.transform.DOMove(targetPosition, moveSpeed);
 				enemy.SetFaceDirection(targetPosition);
 			});
 		}
