@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 4602846497562615601}
   - component: {fileID: 7678053444911947060}
   - component: {fileID: 555929565516110800}
+  - component: {fileID: -9019197764751636974}
   m_Layer: 6
   m_Name: Pre_Sliceable_Enemy
   m_TagString: Untagged
@@ -674,6 +675,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   moveSpeed: 3
+--- !u!114 &-9019197764751636974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842003727385440530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362a1ddcd82048eb80c89e03c020bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3966551480630903008
 GameObject:
   m_ObjectHideFlags: 0
