@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Actor.Scripts{
@@ -23,6 +24,7 @@ namespace Actor.Scripts{
 
 
 		//TODO when Katana Animation is Done we use EventBus to Handle 
+		[Button]
 		public void Cleave(Vector3 cleaveDirection){
 			string triggerName = null;
 			if(cleaveDirection == Vector3.up){
