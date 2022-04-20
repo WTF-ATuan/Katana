@@ -5,10 +5,8 @@ using UnityEngine;
 
 namespace Actor.Scripts{
 	public class ActorController : MonoBehaviour{
-		[SerializeField] private Katana.Scripts.Katana katana;
-
 		private Actor _actor;
-		private IMove moveBehavior;
+		private IMove _moveBehavior;
 
 		//TODO Gesture should be Project folder with other gesture scripts
 		private readonly GestureCalculator _gestureCalculator = new();
@@ -20,8 +18,8 @@ namespace Actor.Scripts{
 
 		private void InitActor(){
 			_actor = GetComponent<Actor>();
-			moveBehavior = GetComponent<IMove>();
-			_actor.MoveBehavior = moveBehavior;
+			_moveBehavior = GetComponent<IMove>();
+			_actor.MoveBehavior = _moveBehavior;
 		}
 
 		private void EventHandle(){
@@ -29,7 +27,7 @@ namespace Actor.Scripts{
 		}
 
 		private void Update(){
-			if(moveBehavior != null){
+			if(_moveBehavior != null){
 				_actor.Move();
 			}
 		}
@@ -42,7 +40,7 @@ namespace Actor.Scripts{
 				var firstPoint = points.First();
 				var lastPoint = points.Last();
 				var lineDirection = _gestureCalculator.CalculateLineDirection(firstPoint, lastPoint);
-				_actor.Cleave(katana, lineDirection);
+				_actor.Cleave(lineDirection);
 			}
 		}
 	}
