@@ -256,6 +256,8 @@ MonoBehaviour:
   target: {fileID: 730786450}
   enemyTypes:
   - {fileID: 3842003727385440530, guid: 8fd3b5f80a6a56144b43a3a1bb676a2c, type: 3}
+  - {fileID: 2268801049408980475, guid: 5dac8e48d3c77404ab2042c34aaced42, type: 3}
+  - {fileID: 7656218120075506637, guid: 776a811ea84c5a94a9cba1c66370dd1e, type: 3}
   spawnPoints:
   - {fileID: 190205195}
   - {fileID: 190205194}
