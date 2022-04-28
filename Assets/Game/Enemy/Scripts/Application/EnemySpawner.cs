@@ -27,10 +27,12 @@ namespace Game.Enemy.Scripts.Application{
 		}
 
 		public void RandomSpawn(){
-			var enemyPrefab = enemyTypes.First();
-			var randomNumber = Random.Range(0, spawnPoints.Count);
-			var randomPosition = spawnPoints[randomNumber].position;
-			var enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+			var randomEnemyNumber = Random.Range(0, enemyTypes.Count);
+			var enemyPrefab = enemyTypes[randomEnemyNumber];
+			var randomSpawnNumber = Random.Range(0, spawnPoints.Count);
+			var randomPosition =
+					spawnPoints[randomSpawnNumber].position + Vector3.up * enemyPrefab.transform.position.y;
+			var enemy = Instantiate(enemyPrefab, randomPosition, enemyPrefab.transform.rotation);
 			InitEnemy(enemy);
 		}
 
