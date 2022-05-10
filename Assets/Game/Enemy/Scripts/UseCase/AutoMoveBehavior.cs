@@ -6,22 +6,24 @@ namespace Game.Enemy.Scripts.UseCase{
 		public Transform target;
 		public float moveSpeed = 3;
 
-		private global::Enemy.Scripts.Enemy enemy;
-		
+		private global::Enemy.Scripts.Enemy _enemy;
+		private Rigidbody _rigidbody;
+
 		public void Init(){
-			enemy = GetComponent<global::Enemy.Scripts.Enemy>();
-			enemy.Initialize(target);
+			_enemy = GetComponent<global::Enemy.Scripts.Enemy>();
+			_rigidbody = GetComponent<Rigidbody>();
+			_enemy.Initialize(target);
 			AutoMove();
 		}
 
 		private void AutoMove(){
-			var middlePosition = enemy.MiddlePosition;
-			var targetPosition = enemy.TargetPosition;
-			enemy.SetFaceDirection(middlePosition);
-			var moveToMiddle = enemy.transform.DOMove(middlePosition, moveSpeed);
+			var middlePosition = _enemy.MiddlePosition;
+			var targetPosition = _enemy.TargetPosition;
+			_enemy.SetFaceDirection(middlePosition);
+			var moveToMiddle = _rigidbody.DOMove(middlePosition, moveSpeed);
 			moveToMiddle.OnComplete(() => {
-				enemy.transform.DOMove(targetPosition, moveSpeed);
-				enemy.SetFaceDirection(targetPosition);
+				_rigidbody.DOMove(targetPosition, moveSpeed);
+				_enemy.SetFaceDirection(targetPosition);
 			});
 		}
 	}

@@ -11,19 +11,19 @@ namespace Game.Enemy.Scripts.Application{
 		[SerializeField] private List<GameObject> enemyTypes;
 		[SerializeField] private List<Transform> spawnPoints;
 
-		private ColdDownTimer timer;
+		private ColdDownTimer _timer;
 
 		private void Start(){
-			timer = new ColdDownTimer(3f);
+			_timer = new ColdDownTimer(3f);
 		}
 
 		private void Update(){
-			var canInvoke = timer.CanInvoke();
+			var canInvoke = _timer.CanInvoke();
 			if(!canInvoke) return;
 			RandomSpawn();
 			var randomNumber = Random.Range(2, 5);
-			timer.ModifyDuring(randomNumber);
-			timer.Reset();
+			_timer.ModifyDuring(randomNumber);
+			_timer.Reset();
 		}
 
 		public void RandomSpawn(){
