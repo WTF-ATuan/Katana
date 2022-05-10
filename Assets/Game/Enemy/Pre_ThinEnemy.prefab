@@ -192,4 +192,4 @@ MonoBehaviour:
   defaultSliceMaterial: {fileID: 5561349426305759274, guid: aa4b0d509e43e85489ab530ed45ecc9d, type: 3}
   asynchronously: 0
   useLazyRunner: 0
-  sliceDelay: 1
+  sliceDelay: 1.5

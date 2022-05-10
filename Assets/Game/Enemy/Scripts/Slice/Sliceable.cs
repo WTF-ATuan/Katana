@@ -1,7 +1,9 @@
 ﻿using System;
 using BzKovSoft.ObjectSlicer;
+using Game.Enemy.Scripts.Slice.Event;
 using Game.Enemy.Scripts.Slice.Interface;
 using Game.Project;
+using Project;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -26,9 +28,17 @@ namespace Game.Enemy.Scripts.Slice{
 
 		public bool TrySlice(Plane plane){
 			if(!timer.CanInvoke()) return false;
-			Slice(plane , null);
+			Slice(plane, x => OnActorSliced(plane, x));
 			timer.Reset();
 			return true;
+		}
+
+		private void OnActorSliced(Plane plane, BzSliceTryResult result){
+			var sliced = result.sliced;
+			if(!sliced) return;
+			var objectNeg = result.outObjectNeg;
+			var objectPos = result.outObjectPos;
+			EventBus.Post(new ActorSliced(plane, gameObject, objectNeg, objectPos));
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace Project.Gesture{
 		private void Start(){
 			_lineRenderer = GetComponent<LineRenderer>();
 			_pointList = new List<Vector3>();
-			_recognizer = new GestureRecognizer("Assets/Game/Project/Gesture/CustomData/");
+			_recognizer = new GestureRecognizer(Application.persistentDataPath);
 			_userCamera = !Camera.main ? FindObjectOfType<Camera>() : Camera.main;
 		}
 

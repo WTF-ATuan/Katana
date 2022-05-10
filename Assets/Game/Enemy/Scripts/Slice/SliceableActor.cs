@@ -34,9 +34,13 @@ namespace Game.Enemy.Scripts.Slice{
 		private void OnActorSliced(Plane plane, BzSliceTryResult result){
 			var sliced = result.sliced;
 			if(!sliced) return;
-			var posRig = result.outObjectPos.GetComponent<Rigidbody>();
-			posRig.AddForce((plane.normal + -posRig.transform.forward) * 2, ForceMode.Impulse);
-			EventBus.Post(new ActorSliced(plane, gameObject, result.outObjectNeg, result.outObjectPos));
+			var objectNeg = result.outObjectNeg;
+			var objectPos = result.outObjectPos;
+			Destroy(objectNeg.GetComponent<SliceableActor>());
+			Destroy(objectPos.GetComponent<SliceableActor>());
+			var posRig = objectPos.GetComponent<Rigidbody>();
+			posRig.AddForce((plane.normal + -posRig.transform.forward) * 20, ForceMode.Impulse);
+			EventBus.Post(new ActorSliced(plane, gameObject, objectNeg, objectPos));
 		}
 	}
 }
