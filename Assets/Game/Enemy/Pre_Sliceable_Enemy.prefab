@@ -660,7 +660,7 @@ MonoBehaviour:
   asynchronously: 0
   useLazyRunner: 0
   sliceDelay: 1
-  maxSliceCount: 1
+  maxSliceCount: 4
 --- !u!114 &555929565516110800
 MonoBehaviour:
   m_ObjectHideFlags: 0

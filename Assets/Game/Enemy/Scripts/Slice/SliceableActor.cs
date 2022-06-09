@@ -15,18 +15,16 @@ namespace Game.Enemy.Scripts.Slice{
 		[BoxGroup] [SerializeField] [Range(1, 5)]
 		private int maxSliceCount = 1;
 
-		private int sliceCount;
+		public int sliceCount{ private get; set; }
 
-		private ColdDownTimer timer;
+		public ColdDownTimer Timer;
 
 		private void Start(){
-			timer = new ColdDownTimer(sliceDelay);
+			Timer = new ColdDownTimer(sliceDelay);
 		}
 
 		public bool TrySlice(Plane plane){
-			if(!timer.CanInvoke() || sliceCount >= maxSliceCount) return false;
-			sliceCount++;
-			timer.Reset();
+			if(!Timer.CanInvoke() || sliceCount >= maxSliceCount) return false;
 			Slice(plane, result => OnActorSliced(plane, result));
 			return true;
 		}
@@ -38,8 +36,6 @@ namespace Game.Enemy.Scripts.Slice{
 			var objectPos = result.outObjectPos;
 			Destroy(objectNeg.GetComponent<SliceableActor>());
 			Destroy(objectPos.GetComponent<SliceableActor>());
-			var posRig = objectPos.GetComponent<Rigidbody>();
-			posRig.AddForce((plane.normal + -posRig.transform.forward) * 20, ForceMode.Impulse);
 			EventBus.Post(new ActorSliced(plane, gameObject, objectNeg, objectPos));
 		}
 	}

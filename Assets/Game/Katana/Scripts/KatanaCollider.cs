@@ -1,4 +1,5 @@
-﻿using Game.Enemy.Scripts.Slice.Interface;
+﻿using System;
+using Game.Enemy.Scripts.Slice.Interface;
 using UnityEngine;
 
 namespace Katana.Scripts{
@@ -16,6 +17,14 @@ namespace Katana.Scripts{
 			var sliceable = other.GetComponent<ISliceableNoRepeat>();
 			if(sliceable != null){
 				var collisionPoint = other.ClosestPointOnBounds(_katana.bladePosition);
+				Slice(sliceable, collisionPoint);
+			}
+		}
+
+		private void OnCollisionEnter(Collision collision){
+			var sliceable = collision.transform.root.GetComponent<ISliceableNoRepeat>();
+			if(sliceable != null){
+				var collisionPoint = collision.GetContact(0).point;
 				Slice(sliceable, collisionPoint);
 			}
 		}
