@@ -20,6 +20,15 @@ namespace Project.Gesture{
 			throw new Exception($"Not Custom Gesture In Data Folder {dataPath}");
 		}
 
+		public GestureRecognizer(){
+			var gesturesXml = Resources.LoadAll<TextAsset>("CustomData/");
+			var name = gesturesXml[0].name;
+			foreach(var xmlAsset in gesturesXml)
+				_gesturesList.Add(GestureIO.ReadGestureFromXML(xmlAsset.text));
+			if(_gesturesList.Count >= 1) return;
+			throw new Exception($"Not Custom Gesture In Resources Folder");
+		}
+
 		public void AddPoint(Vector3[] pointArray, int strokesIndex){
 			foreach(var point in pointArray){
 				var pointValue = new Point(point.x, -point.y, strokesIndex);
