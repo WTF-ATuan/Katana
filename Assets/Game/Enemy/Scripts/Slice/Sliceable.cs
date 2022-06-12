@@ -38,6 +38,8 @@ namespace Game.Enemy.Scripts.Slice{
 			if(!sliced) return;
 			var objectNeg = result.outObjectNeg;
 			var objectPos = result.outObjectPos;
+			Destroy(objectNeg.GetComponent<Sliceable>());
+			Destroy(objectPos.GetComponent<Sliceable>());
 			EventBus.Post(new ActorSliced(plane, gameObject, objectNeg, objectPos));
 		}
 	}
