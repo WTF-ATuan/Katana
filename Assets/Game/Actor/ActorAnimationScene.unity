@@ -2051,7 +2051,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 257614759389975632, guid: 01cfe7e4e9399ae4e9157a8db86a19aa, type: 3}
       propertyPath: m_Name
-      value: Pre_Actor v0.0.1
+      value: Pre_Actor v0.1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 257614759389975632, guid: 01cfe7e4e9399ae4e9157a8db86a19aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 637518757474209514, guid: 01cfe7e4e9399ae4e9157a8db86a19aa, type: 3}
       propertyPath: m_RootOrder
@@ -3138,8 +3142,10 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653146868900}
   - component: {fileID: 919132148675753503}
+  - component: {fileID: 919132148675753505}
+  - component: {fileID: 919132148675753504}
   m_Layer: 0
-  m_Name: katana_run_ani
+  m_Name: Pre_Actor v0.1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3155,7 +3161,7 @@ Animator:
   m_GameObject: {fileID: 919132148675753502}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe834ad2ec3d7f04f8a8641b39489802, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3165,6 +3171,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &919132148675753504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148675753502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cf7b846b03418088f93c91de5d5d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &919132148675753505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148675753502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99603b2becbf420b82d6e561e6305542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &921911298171665216
 Transform:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 257614759389975638}
   - component: {fileID: 257614759389975639}
   m_Layer: 0
-  m_Name: Pre_Actor v0.0.1
+  m_Name: Pre_Actor v0.1.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
