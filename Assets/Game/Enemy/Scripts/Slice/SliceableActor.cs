@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Enemy.Scripts.Slice{
-	public class SliceableActor : BzSliceableCharacterBase, ISliceableNoRepeat{
+	public class SliceableActor : BzSliceableCharacterBase, ISliceableCustom{
 		[BoxGroup] [SerializeField] [Range(0.5f, 1.5f)]
 		private float sliceDelay = 1.0f;
 

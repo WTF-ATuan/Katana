@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Enemy.Scripts.Slice.Interface
 {
-	public interface ISliceableNoRepeat
+	public interface ISliceableCustom
 	{
 		bool TrySlice(Plane plane);
 	}

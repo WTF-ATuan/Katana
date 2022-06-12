@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Plugins.BzKovSoft.ObjectSlicer;
 using UnityEngine;
 
 namespace BzKovSoft.ObjectSlicer.Samples

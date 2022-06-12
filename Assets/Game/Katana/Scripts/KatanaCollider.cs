@@ -14,7 +14,7 @@ namespace Katana.Scripts{
 
 
 		private void OnTriggerEnter(Collider other){
-			var sliceable = other.GetComponent<ISliceableNoRepeat>();
+			var sliceable = other.GetComponent<ISliceableCustom>();
 			if(sliceable != null){
 				var collisionPoint = other.ClosestPointOnBounds(_katana.bladePosition);
 				Slice(sliceable, collisionPoint);
@@ -22,14 +22,14 @@ namespace Katana.Scripts{
 		}
 
 		private void OnCollisionEnter(Collision collision){
-			var sliceable = collision.transform.root.GetComponent<ISliceableNoRepeat>();
+			var sliceable = collision.transform.root.GetComponent<ISliceableCustom>();
 			if(sliceable != null){
 				var collisionPoint = collision.GetContact(0).point;
 				Slice(sliceable, collisionPoint);
 			}
 		}
 
-		private void Slice(ISliceableNoRepeat sliceableObject, Vector3 collisionPoint){
+		private void Slice(ISliceableCustom sliceableObject, Vector3 collisionPoint){
 			var planeNormalDirection = _katana.bladeNormal;
 			var plane = new Plane(planeNormalDirection, collisionPoint);
 			sliceableObject.TrySlice(plane);

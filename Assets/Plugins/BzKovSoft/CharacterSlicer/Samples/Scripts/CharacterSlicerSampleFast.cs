@@ -4,7 +4,6 @@ using BzKovSoft.ObjectSlicer.Samples;
 using System;
 using System.Collections;
 using System.Diagnostics;
-using Plugins.BzKovSoft.ObjectSlicer;
 using UnityEngine;
 using UnityEngine.Profiling;
 using Debug = UnityEngine.Debug;
