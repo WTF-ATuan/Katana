@@ -11,7 +11,7 @@ namespace Game.Enemy.Scripts.UseCase{
 
 		public void Init(){
 			_enemy = GetComponent<global::Enemy.Scripts.Enemy>();
-			_rigidbody = GetComponent<Rigidbody>();
+			_rigidbody = GetComponentInChildren<Rigidbody>();
 			_enemy.Initialize(target);
 			AutoMove();
 		}
