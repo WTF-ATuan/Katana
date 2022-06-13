@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3060466772693770493}
   - component: {fileID: 2150237674836029269}
+  - component: {fileID: 6813897811366132884}
   m_Layer: 0
   m_Name: Pre_DRIZZLE -NEW-
   m_TagString: Untagged
@@ -45,6 +46,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01c0bb58f88469d920d865c8482a851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6813897811366132884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392298691038558791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2457741673154be8b3be7a5e015b9e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 3
 --- !u!1001 &7003677654925913801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,7 +192,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5ddae308fd4266bf4e8a39c288ff51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 5561349426305759274, guid: aa4b0d509e43e85489ab530ed45ecc9d, type: 3}
+  defaultSliceMaterial: {fileID: -382652638819485698, guid: 949abe85955458c43a44480a06dc77e6, type: 3}
   asynchronously: 0
   useLazyRunner: 0
   sliceDelay: 1.5
+--- !u!114 &7432284900727879717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922788773639623576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362a1ddcd82048eb80c89e03c020bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,6 +5,7 @@
     license: WTFPL (http://www.wtfpl.net/)
     author: aeroson
 */
+#if UNITY_EDITOR
 
 using UnityEngine;
 using UnityEditor;
@@ -37,3 +38,5 @@ public class ComponentsCopier : EditorWindow
     }
 
 }
+
+#endif
