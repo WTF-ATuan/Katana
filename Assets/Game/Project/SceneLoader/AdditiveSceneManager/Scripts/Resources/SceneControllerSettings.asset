@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: SceneControllerSettings
   m_EditorClassIdentifier: 
   scenes:
+  - Demo Blend
+  - Demo Day
+  - Demo Night
+  - Example Scene
   - ActorAnimationScene
   - ActorMoveScene
   - ActorScene
   - BattleScene
   - EnemyBattleScene
-  - v0.1.1 EnemyBattleScene
   - EnemyMoveScene
   - EnemySliceScene V0.1.1
   - EnemySliceScene
   - Katana Scene
   - MapScene
   - InputScene
-  - StartRoom
+  - UI_Scene
+  - MC_MatCap_Creator
+  - MC_Demo
   - testSceneCharacterKnifeFast
   - testSceneAsync
   - testSceneByPlane
@@ -35,7 +40,7 @@ MonoBehaviour:
   - Demo_Scene
   - Demo
   - Prototype Materials Demo
-  - Battle Scene
-  loadAtStartScenes: []
-  persistentScenes:
-  - EnemySliceScene V0.1.1
+  - EnemyBattleScene 1
+  loadAtStartScenes:
+  - EnemyBattleScene
+  persistentScenes: []
