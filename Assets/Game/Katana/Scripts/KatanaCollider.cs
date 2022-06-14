@@ -22,7 +22,7 @@ namespace Katana.Scripts{
 		}
 
 		private void OnCollisionEnter(Collision collision){
-			var sliceable = collision.transform.root.GetComponent<ISliceableCustom>();
+			var sliceable = collision.transform.GetComponent<ISliceableCustom>();
 			if(sliceable != null){
 				var collisionPoint = collision.GetContact(0).point;
 				Slice(sliceable, collisionPoint);
