@@ -31,7 +31,7 @@ namespace Game.Enemy.Scripts.Application{
 			var enemyPrefab = enemyTypes[randomEnemyNumber];
 			var randomSpawnNumber = Random.Range(0, spawnPoints.Count);
 			var randomPosition =
-					spawnPoints[randomSpawnNumber].position + Vector3.up * enemyPrefab.transform.position.y;
+					spawnPoints[randomSpawnNumber].position;
 			var enemy = Instantiate(enemyPrefab, randomPosition, enemyPrefab.transform.rotation, transform);
 			InitEnemy(enemy);
 		}
@@ -39,7 +39,7 @@ namespace Game.Enemy.Scripts.Application{
 		public void InitEnemy(GameObject obj){
 			var moveBehavior = obj.GetComponent<AutoMoveBehavior>();
 			moveBehavior.target = target;
-			var randomNumber = Random.Range(3, 7);
+			var randomNumber = Random.Range(2.5f, 5);
 			moveBehavior.moveSpeed = randomNumber;
 			moveBehavior.Init();
 		}

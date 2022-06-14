@@ -3,10 +3,6 @@
 namespace Enemy.Scripts{
 	public class Enemy : MonoBehaviour{
 		private Transform Target{ get; set; }
-
-		public Vector3 MiddlePosition =>
-				new(Target.position.x, transform.position.y, transform.position.z);
-
 		public Vector3 TargetPosition =>
 				new(Target.position.x, transform.position.y, Target.position.z + 1f);
 		

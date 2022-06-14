@@ -10,12 +10,12 @@ namespace Game.Battle.Scripts{
 
 		private void Start(){
 			EventBus.Subscribe<ActorSliced>(OnActorSliced);
-			enemyKilledText.text = $"Enemy Killed : {_slicedCount}";
+			enemyKilledText.text = $"{_slicedCount}";
 		}
 
 		private void OnActorSliced(ActorSliced obj){
 			_slicedCount++;
-			enemyKilledText.text = $"Enemy Killed : {_slicedCount}";
+			enemyKilledText.text = $"{_slicedCount}";
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Project;
 using Project.Gesture.Event;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace Actor.Scripts{
 
 		//TODO Gesture should be Project folder with other gesture scripts
 		private readonly GestureCalculator _gestureCalculator = new();
+
+		private float _contactTime;
 
 		private void Start(){
 			InitActor();
@@ -43,5 +46,21 @@ namespace Actor.Scripts{
 				_actor.Cleave(lineDirection);
 			}
 		}
+
+		private void OnTriggerStay(Collider other){
+			if(other.gameObject.layer == LayerMask.NameToLayer("Enemy")){
+				_contactTime += Time.fixedDeltaTime;
+				if(_contactTime > 2f){
+					EventBus.Post(new ActorDied());
+					_contactTime = 0;
+				}
+			}
+		}
+
+		private void OnTriggerExit(Collider other){
+			_contactTime = 0;
+		}
 	}
+
+	public class ActorDied{ }
 }

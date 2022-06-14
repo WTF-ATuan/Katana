@@ -40,6 +40,12 @@ namespace Game.Enemy.Scripts.Slice{
 			var objectPos = result.outObjectPos;
 			Destroy(objectNeg.GetComponent<Sliceable>());
 			Destroy(objectPos.GetComponent<Sliceable>());
+			Destroy(objectNeg.GetComponent<Collider>());
+			Destroy(objectPos.GetComponent<Collider>());
+			var negRigid = objectNeg.GetComponent<Rigidbody>();
+			var posRigid = objectPos.GetComponent<Rigidbody>();
+			negRigid.AddExplosionForce(300f, plane.normal, 4f);
+			posRigid.AddExplosionForce(300f, plane.normal, 4f);
 			EventBus.Post(new ActorSliced(plane, gameObject, objectNeg, objectPos));
 		}
 	}
