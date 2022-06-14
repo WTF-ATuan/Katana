@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: floor
+  m_Name: house
   m_Shader: {fileID: 4800000, guid: 8fa84e1c8f3a97b4bb416e8eb087630e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -47,10 +47,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MatCap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -73,25 +69,24 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FresnelBrightness: 0
-    - _FresnelPower: 0
-    - _FresnelShadowDropoff: 0
+    - _FresnelBrightness: 1
+    - _FresnelPower: 0.764
+    - _FresnelShadowDropoff: 0.033
     - _GlossMapScale: 1
-    - _Glossiness: 0.827
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HighIntensity: 10
-    - _LightScalar: 1
-    - _LowIntensity: 0
-    - _MatCapAccurate: 0
+    - _HighIntensity: 5.23
+    - _LightScalar: 1.11
+    - _LowIntensity: 0.25
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineSize: 0
+    - _OutlineSize: 72.34
     - _Parallax: 0.02
     - _RampLevels: 2
     - _RimAlpha: 1
     - _RimDropOff: 0
-    - _RimPower: 0.71
+    - _RimPower: 0.834
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -99,10 +94,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0.011703432, b: 0.007843138, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighColor: {r: 1, g: 1, b: 0, a: 1}
-    - _LowColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 1, g: 0, b: 0.35529804, a: 1}
+    - _HighColor: {r: 0, g: 0.44705886, b: 1, a: 1}
+    - _LowColor: {r: 0, g: 0.44769144, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.9528302, g: 0.23174816, b: 0, a: 1}
   m_BuildTextureStacks: []
