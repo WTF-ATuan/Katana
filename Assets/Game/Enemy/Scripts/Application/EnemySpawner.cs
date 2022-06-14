@@ -32,7 +32,7 @@ namespace Game.Enemy.Scripts.Application{
 			var randomSpawnNumber = Random.Range(0, spawnPoints.Count);
 			var randomPosition =
 					spawnPoints[randomSpawnNumber].position + Vector3.up * enemyPrefab.transform.position.y;
-			var enemy = Instantiate(enemyPrefab, randomPosition, enemyPrefab.transform.rotation);
+			var enemy = Instantiate(enemyPrefab, randomPosition, enemyPrefab.transform.rotation, transform);
 			InitEnemy(enemy);
 		}
 

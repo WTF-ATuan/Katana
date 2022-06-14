@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour{
 
 	private void Start(){
 		Application.backgroundLoadingPriority = ThreadPriority.Low;
-		foreach(var sceneName in settings.loadAtStartScenes) LoadScene(sceneName);
+		foreach(var sceneName in settings.loadAtStartScenes) BackGroundLoadScene(sceneName);
 	}
 
 	//如果有效能瓶頸 在來管控 Coroutine;
@@ -47,7 +47,6 @@ public class SceneController : MonoBehaviour{
 			asyncOperation.allowSceneActivation = true;
 		}
 	}
-
 	public bool Exists(string sceneName){
 		return settings.scenes.Contains(sceneName, StringComparer.OrdinalIgnoreCase);
 	}
