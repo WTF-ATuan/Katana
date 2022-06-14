@@ -101,6 +101,10 @@ namespace Project{
 			return default;
 		}
 
+		public static void Clear(){
+			NonCallbackActions.Clear();
+			CallbackActions.Clear();
+		}
 
 		private void OnDisable(){
 			NonCallbackActions.Clear();
